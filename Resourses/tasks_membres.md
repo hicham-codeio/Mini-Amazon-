@@ -1,6 +1,6 @@
 # 🧑‍💻 Team Tasks (4 Members)
 
-## 🔹 Member 1 --- Product & Recommendation
+## 🔹 Member 1 --- Product & Recommendation   // Mohamed ouhsine
 
 **Classes:** - Product (abstract)\
 - Electronics\
@@ -14,7 +14,7 @@
 
 ------------------------------------------------------------------------
 
-## 🔹 Member 2 --- Cart & Order
+## 🔹 Member 2 --- Cart & Order // Abdelghafor Agdz
 
 **Classes:** - Cart\
 - CartItem\
@@ -26,7 +26,7 @@
 
 ------------------------------------------------------------------------
 
-## 🔹 Member 3 --- Customer & UI
+## 🔹 Member 3 --- Customer & UI    // Ayoub motaoukil
 
 **Classes:** - Customer\
 - UI / Menu system
@@ -38,7 +38,7 @@
 
 ------------------------------------------------------------------------
 
-## 🔹 Member 4 --- Database & Integration
+## 🔹 Member 4 --- Database & Store // Hicham ait douch
 
 **Classes:** - Database\
 - ProductDAO\
