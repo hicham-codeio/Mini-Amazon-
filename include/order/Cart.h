@@ -1,19 +1,32 @@
+#ifndef CART_H
+#define CART_H
+
 #include <vector>
 #include <memory>
-class Product ; 
-class CartItem ;
+
+#include "CartItem.h"
+
+class Product;
+
 class Cart {
-    private:
+private:
     std::vector<CartItem> items;
-    public:
+
+public:
     void addProduct(
-    std::shared_ptr<Product> product,
-    int quantity
+        std::shared_ptr<Product> product,
+        int quantity
     );
+
     void removeProduct(int productId);
+
     void clear();
+
     double calculateTotal() const;
+
     void displayCart() const;
-    const std::vector<CartItem>&
-    getItems() const;
+
+    const std::vector<CartItem>& getItems() const;
 };
+
+#endif
