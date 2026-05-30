@@ -1,0 +1,6 @@
+set(__QT_DEPLOY_TARGET_MiniAmazonCLI_FILE C:/Users/hicha/Desktop/mini_amazon/build/MiniAmazonCLI.exe)
+set(__QT_DEPLOY_TARGET_MiniAmazonCLI_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_MiniAmazonCLI_RUNTIME_DLLS )
+set(__QT_DEPLOY_TARGET_MiniAmazonGUI_FILE C:/Users/hicha/Desktop/mini_amazon/build/MiniAmazonGUI.exe)
+set(__QT_DEPLOY_TARGET_MiniAmazonGUI_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_MiniAmazonGUI_RUNTIME_DLLS C:/Qt/6.11.0/mingw_64/bin/Qt6Widgets.dll;C:/Qt/6.11.0/mingw_64/bin/Qt6Gui.dll;C:/Qt/6.11.0/mingw_64/bin/Qt6Core.dll)

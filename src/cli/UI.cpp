@@ -7,19 +7,28 @@
 UI::UI() = default;
 
 static void printProductTableLine() {
-    std::cout << "+" << std::string(7, '-') << "+" << std::string(22, '-') 
-              << "+" << std::string(17, '-') << "+" << std::string(11, '-') 
-              << "+" << std::string(7, '-') << "+" << std::string(27, '-') << "+\n";
+    std::cout << "+"
+              << std::string(7, '-')
+              << "+" << std::string(37, '-')
+              << "+" << std::string(17, '-')
+              << "+" << std::string(11, '-')
+              << "+" << std::string(7, '-')
+              << "+" << std::string(27, '-')
+              << "+\n";
 }
 
 static void printProductTableHeader() {
     printProductTableLine();
-    std::cout << "| " << std::left << std::setw(5) << "ID" 
-              << " | " << std::setw(20) << "Name" 
-              << " | " << std::setw(15) << "Category" 
-              << " | " << std::setw(9) << "Price" 
-              << " | " << std::setw(5) << "Stock" 
-              << " | " << std::setw(25) << "Details" << " |\n";
+
+    std::cout << "| "
+              << std::left << std::setw(5) << "ID"
+              << " | " << std::setw(35) << "Name"
+              << " | " << std::setw(15) << "Category"
+              << " | " << std::setw(9) << "Price"
+              << " | " << std::setw(5) << "Stock"
+              << " | " << std::setw(25) << "Details"
+              << " |\n";
+
     printProductTableLine();
 }
 
@@ -30,7 +39,7 @@ static void printCartTableLine() {
 
 static void printCartTableHeader() {
     printCartTableLine();
-    std::cout << "| " << std::left << std::setw(20) << "Product Name" 
+    std::cout << " | " << std::left << std::setw(20) << "Product Name" 
               << " | " << std::setw(4) << "Qty" 
               << " | " << std::setw(9) << "Unit Prc" 
               << " | " << std::setw(11) << "Total Prc" << " |\n";
