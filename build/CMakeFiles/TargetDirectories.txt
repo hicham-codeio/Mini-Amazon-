@@ -1,8 +1,0 @@
-C:/Users/hicha/Desktop/mini_amazon/build/CMakeFiles/MiniAmazonCLI.dir
-C:/Users/hicha/Desktop/mini_amazon/build/CMakeFiles/MiniAmazonGUI.dir
-C:/Users/hicha/Desktop/mini_amazon/build/CMakeFiles/edit_cache.dir
-C:/Users/hicha/Desktop/mini_amazon/build/CMakeFiles/rebuild_cache.dir
-C:/Users/hicha/Desktop/mini_amazon/build/CMakeFiles/MiniAmazonCLI_autogen_timestamp_deps.dir
-C:/Users/hicha/Desktop/mini_amazon/build/CMakeFiles/MiniAmazonCLI_autogen.dir
-C:/Users/hicha/Desktop/mini_amazon/build/CMakeFiles/MiniAmazonGUI_autogen_timestamp_deps.dir
-C:/Users/hicha/Desktop/mini_amazon/build/CMakeFiles/MiniAmazonGUI_autogen.dir
