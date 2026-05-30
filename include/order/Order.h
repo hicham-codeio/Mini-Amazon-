@@ -1,34 +1,21 @@
-#ifndef ORDER_H
-#define ORDER_H
-
+#pragma once
 #include <vector>
-#include <string>
-
-#include "CartItem.h"
+#include "order/CartItem.h"
 
 class Order {
 private:
-    int id;
-    std::string orderDate;
+    int id = 0;
+    int customerId = 0;
     std::vector<CartItem> items;
-
-    double subtotal;
-    double tva;
-    double discount;
-    double totalAmount;
+    double subtotal = 0.0;
+    double tvaAmount = 0.0;
+    double finalTotal = 0.0;
 
 public:
-    Order(
-        int id,
-        const std::vector<CartItem>& items
-    );
-
-    void calculateTotal(
-        double tvaRate,
-        double discountRate
-    );
-
+    Order(int p_id, int p_customerId, std::vector<CartItem> p_items, double p_subtotal);
+    int getId() const noexcept;
+    int getCustomerId() const noexcept;
+    double getFinalTotal() const noexcept;
+    const std::vector<CartItem>& getItems() const noexcept;
     void display() const;
 };
-
-#endif

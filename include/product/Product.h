@@ -1,27 +1,28 @@
-#ifndef PRODUCT_H
-#define PRODUCT_H
-
+#pragma once
 #include <string>
+#include <iostream>
 
 class Product {
-    protected: 
-        int id_prod;
-        std::string nom;
-        double prix;
-        int stock;
+private:
+    int id = 0;
+    std::string name;
+    std::string category;
+    double price = 0.0;
+    int stock = 0;
 
-    public:
-        Product(int id, std::string n, double p, int q);
-        virtual ~Product() = default;
-        
-        int getId() const;
-        std::string getNom() const;
-        double getPrix() const;
-        int getStock() const;
+public:
+    Product(int p_id, std::string p_name, std::string p_category, double p_price, int p_stock);
+    virtual ~Product() = default;
 
-        void NouveauStock(int quantite);
+    int getId() const noexcept;
+    const std::string& getName() const noexcept;
+    const std::string& getCategory() const noexcept;
+    double getPrice() const noexcept;
+    int getStock() const noexcept;
+    
+    void setStock(int newStock) noexcept;
+    bool reduceStock(int quantity) noexcept;
 
-        virtual void affecher() const = 0; 
+    virtual void display() const = 0; 
+    virtual std::string getDetails() const = 0;
 };
-
-#endif

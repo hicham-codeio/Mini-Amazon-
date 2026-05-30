@@ -1,26 +1,16 @@
 #include "order/CartItem.h"
-#include "product/Product.h"
+#include <utility>
 
-CartItem::CartItem(
-    std::shared_ptr<Product> product,
-    int quantity
-)
-{
-    this->product = product;
-    this->quantity = quantity;
-}
+CartItem::CartItem(std::shared_ptr<Product> p_product, int p_quantity) 
+    : product(std::move(p_product)), quantity(p_quantity) {}
 
-double CartItem::getTotal() const
-{
-    return product->getPrice() * quantity;
-}
+std::shared_ptr<Product> CartItem::getProduct() const noexcept { return product; }
+int CartItem::getQuantity() const noexcept { return quantity; }
+void CartItem::setQuantity(int qty) noexcept { quantity = qty; }
 
-int CartItem::getQuantity() const
-{
-    return quantity;
-}
-
-std::shared_ptr<Product> CartItem::getProduct() const
-{
-    return product;
+double CartItem::getTotalPrice() const noexcept {
+    if (product) {
+        return product->getPrice() * quantity;
+    }
+    return 0.0;
 }

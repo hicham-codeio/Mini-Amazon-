@@ -1,90 +1,49 @@
 #include "order/Cart.h"
-#include "order/CartItem.h"
-#include "product/Product.h"
-
 #include <iostream>
+#include <algorithm>
+#include <numeric>
 
-using namespace std;
+void Cart::addProduct(std::shared_ptr<Product> product, int quantity) {
+    if (!product) return;
+    
+    auto it = std::find_if(items.begin(), items.end(), [&](const CartItem& item) {
+        return item.getProduct()->getId() == product->getId();
+    });
 
-void Cart::addProduct(
-    shared_ptr<Product> product,
-    int quantity
-)
-{
-    if (quantity <= 0)
-    {
+    if (it != items.end()) {
+        it->setQuantity(it->getQuantity() + quantity);
+    } else {
+        items.emplace_back(std::move(product), quantity);
+    }
+}
+
+void Cart::removeProduct(int productId) {
+    items.erase(std::remove_if(items.begin(), items.end(), [&](const CartItem& item) {
+        return item.getProduct()->getId() == productId;
+    }), items.end());
+}
+
+void Cart::updateQuantity(int productId, int newQuantity) {
+    if (newQuantity <= 0) {
+        removeProduct(productId);
         return;
     }
-    for (auto& item : items)
-    {
-        if (item.getProduct()->getId() == product->getId())
-        {
-            int newQuantity =
-                item.getQuantity() + quantity;
 
-            item = CartItem(product, newQuantity);
+    auto it = std::find_if(items.begin(), items.end(), [&](const CartItem& item) {
+        return item.getProduct()->getId() == productId;
+    });
 
-            return;
-        }
-    }
-
-    items.push_back(
-        CartItem(product, quantity)
-    );
-}
-
-void Cart::removeProduct(int productId)
-{
-    for (auto it = items.begin();
-         it != items.end();
-         it++)
-    {
-        if (it->getProduct()->getId() == productId)
-        {
-            items.erase(it);
-            return;
-        }
+    if (it != items.end()) {
+        it->setQuantity(newQuantity);
     }
 }
 
-void Cart::clear()
-{
-    items.clear();
-}
+const std::vector<CartItem>& Cart::getItems() const noexcept { return items; }
 
-double Cart::calculateTotal() const
-{
-    double total = 0.0;
+void Cart::clear() noexcept { items.clear(); }
 
-    for (const auto& item : items)
-    {
-        total += item.getTotal();
-    }
-
-    return total;
-}
-
-void Cart::displayCart() const
-{
-    cout << "\n===== CART =====\n";
-
-    for (const auto& item : items)
-    {
-        cout
-        << item.getProduct()->getName()
-        << " | Qty: "
-        << item.getQuantity()
-        << " | Total: "
-        << item.getTotal()
-        << endl;
-    }
-
-    cout << "Total Cart = "
-         << calculateTotal()
-         << endl;
-}
-
-const vector<CartItem>& Cart::getItems() const
-{
-    return items;
+double Cart::getTotal() const noexcept {
+    return std::accumulate(items.begin(), items.end(), 0.0, [](double sum, const CartItem& item) {
+        return sum + item.getTotalPrice();
+    });
 }
